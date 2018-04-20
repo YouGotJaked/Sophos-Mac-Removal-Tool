@@ -6,7 +6,7 @@ for i in "${WORKING_DIR[@]}"
 do
 	if [ -d "$i" ]; then
 		echo "Removing $i"
-		rm -Rf "$i"
+		sudo rm -Rf "$i"
 	fi
 done
 
@@ -14,9 +14,9 @@ done
 WORKING_DIR=('/Library/Preferences' '/Library/LaunchDaemons' '/Library/LaunchAgents' '/Library/Caches')
 for i in "${WORKING_DIR[@]}"
 do
-    find "$i" -maxdepth 1 -name 'com.sophos.*' -delete
+    sudo find "$i" -maxdepth 1 -name 'com.sophos.*' -delete
 done
 
 #remove 'Sophos' files
 WORKING_DIR='/Library/Extensions'
-find "$WORKING_DIR" -name 'Sophos*' -delete
+sudo find "$WORKING_DIR" -name 'Sophos*' -delete
